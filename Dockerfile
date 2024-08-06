@@ -12,9 +12,9 @@ ENV PATH=/home/platformio/.platformio/penv/bin:$PATH
 
 # Clone MarlinFirmware repository, checkout latest release tag
 WORKDIR /home/platformio
-RUN git clone https://github.com/MarlinFirmware/Marlin.git \
+RUN git clone https://github.com/shadow578/Marlin-H32 \
   && cd Marlin/ \
   && git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 
 COPY build-marlin.sh .
-CMD ["bash", "/home/platformio/build-marlin.sh"]
+CMD ["bash", "/home/platformio/prepare-marlin.sh"]
